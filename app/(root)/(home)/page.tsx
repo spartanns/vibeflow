@@ -1,9 +1,11 @@
+"use client";
+
 import SongCard from "@/components/SongCard";
 import { tracks } from "@/constants/discover";
+import { useSelector } from "react-redux";
 
 const Home: React.FC = () => {
-  const activeSong = {};
-  const isPlaying = false;
+  const { activeSong, isPlaying } = useSelector((state) => state.player);
 
   return (
     <section className="flex flex-col">

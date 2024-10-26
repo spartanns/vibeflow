@@ -8,7 +8,7 @@ interface PlayPauseProps {
   handlePause: () => void;
 }
 
-const PlayPause = ({ isPlaying, activeSong, song, handlePause, handlePlay }) => (isPlaying && activeSong?.album.name === song.album.name ? (
+const PlayPause = ({ isPlaying, activeSong, song, handlePause, handlePlay }: PlayPauseProps) => (isPlaying && activeSong?.name === song.name ? (
   <PauseCircleIcon
     size={35}
     className="text-gray-300"

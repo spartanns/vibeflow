@@ -8,8 +8,11 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/free-mode";
 import PlayPause from "./PlayPause";
+import { useDispatch, useSelector } from "react-redux";
+import { playPause, setActiveSong } from "@/redux/slices/playerSlice";
 
 const TopChartCard = ({ song, activeSong, isPlaying, handlePauseClick, handlePlayClick, i }) => {
+  //const track = useSelector((state) => state.song)
 
   return (
     <section className="w-full flex flex-row items-center hover:bg-[#4C426E] py-2 p-4 rounded-lg cursor-pointer mb-2">
@@ -19,6 +22,9 @@ const TopChartCard = ({ song, activeSong, isPlaying, handlePauseClick, handlePla
         <div className="flex flex-col flex-1 justify-center mx-3">
           <Link href={`/songs/${song.album.id}`}>
             <p className="text-xl font-bold text-white">{song?.album.name}</p>
+          </Link>
+          <Link href={`/artists/${song?.album.artists[0].id}`}>
+            <p className="text-base text-gray-300 mt-1">{song?.album.artists[0].name}</p>
           </Link>
         </div>
       </div>
@@ -34,8 +40,10 @@ const TopChartCard = ({ song, activeSong, isPlaying, handlePauseClick, handlePla
 };
 
 const TopPlay = () => {
+  const dispatch = useDispatch();
   const divRef = useRef(null);
-  const isPlaying = false;
+  const { activeSong, isPlaying } = useSelector((state) => state.player);
+  const data = {};
 
   useEffect(() => {
     divRef.current.scrollIntoView({ behavior: "smooth" });
@@ -43,12 +51,17 @@ const TopPlay = () => {
 
   const topPlays = tracks.slice(0, 5);
 
-  const handlePlayClick = () => { };
+  const handlePlayClick = (song, i) => {
+    dispatch(setActiveSong({ song, data, i }));
+    dispatch(playPause(true));
+  };
 
-  const handlePauseClick = () => { };
+  const handlePauseClick = () => {
+    dispatch(playPause(false));
+  };
 
   return (
-    <section ref={divRef} className="xl:ml-0 xl:mb-0 mb-6 flex-1 xl:max-w-[500px] max-w-full flex flex-col">
+    <section ref={divRef} className="xl:ml-0 xl:mb-0 mb-6 flex-1 xl:max-w-[500px] max-w-full flex flex-col mt-4">
       <div className="w-full flex flex-col">
         <div className="flex flex-row justify-between items-center">
           <h2 className="text-white font-bold text-2xl">Top Charts</h2>
@@ -63,8 +76,8 @@ const TopPlay = () => {
               key={i}
               i={i}
               isPlaying={isPlaying}
-              activeSong={song}
-              handlePlayClick={() => handlePlayClick()}
+              activeSong={activeSong}
+              handlePlayClick={() => handlePlayClick(song, i)}
               handlePauseClick={handlePauseClick}
             />
           ))}
