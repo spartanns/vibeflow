@@ -32,7 +32,9 @@ const ArtistDetails = () => {
       <article className="w-full">
         <p className="text-gray-300">{artist.profile.biography.text}</p>
       </article>
-      <article className="w-full flex justify-center items-center border border-red-300 h-[260px]">
+
+      <h2 className="text-center w-full mt-4 text-3xl text-white mb-8">Featuring</h2>
+      <article className="w-full flex justify-center items-center h-[260px]">
         <Carousel className="w-3/4">
           <CarouselContent>
             {artist.relatedContent.featuring.items.map((item, i) => (
