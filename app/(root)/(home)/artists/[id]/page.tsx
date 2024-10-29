@@ -16,10 +16,12 @@ import { Card, CardDescription, CardTitle } from "@/components/ui/card";
 const FeaturingCard = ({ name, description, imgUrl }) => (
   <Card className="h-[250px] flex flex-col gap-2 justify-end rounded-lg">
     <img src={imgUrl} className="w-full h-full inset-0 object-cover rounded-lg" width="100%" height="100%" />
+    {/*
     <div className="flex flex-col relative bg-gray-600">
       <CardTitle>{name}</CardTitle>
       <CardDescription>{description}</CardDescription>
     </div>
+    */}
   </Card>
 );
 

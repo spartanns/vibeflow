@@ -18,20 +18,22 @@ const DetailsHeader = ({ artist, song }) => (
       <div className="w-full ml-5 mt-10">
         <div className="w-full flex justify-between">
           <p className="font-bold sm:text-3xl text-xl text-white">{artist ? artist?.profile?.name : song?.name}</p>
-          <div className="flex gap-4 mr-2">
-            <Link href={artist.profile.externalLinks.items[0].url} target="_blank">
-              <BsFacebook className="w-8 h-8 cursor-pointer" />
-            </Link>
-            <Link href={artist.profile.externalLinks.items[1].url} target="_blank">
-              <BsInstagram className="w-8 h-8 cursor-pointer" />
-            </Link>
-            <Link href={artist.profile.externalLinks.items[2].url} target="_blank">
-              <BsTwitter className="w-8 h-8 cursor-pointer" />
-            </Link>
-            <Link href={artist.profile.externalLinks.items[3].url} target="_blank">
-              <BsWikipedia className="w-8 h-8 cursor-pointer" />
-            </Link>
-          </div>
+          {artist && (
+            <div className="flex gap-4 mr-2">
+              <Link href={artist.profile.externalLinks.items[0].url} target="_blank">
+                <BsFacebook className="w-8 h-8 cursor-pointer" />
+              </Link>
+              <Link href={artist.profile.externalLinks.items[1].url} target="_blank">
+                <BsInstagram className="w-8 h-8 cursor-pointer" />
+              </Link>
+              <Link href={artist.profile.externalLinks.items[2].url} target="_blank">
+                <BsTwitter className="w-8 h-8 cursor-pointer" />
+              </Link>
+              <Link href={artist.profile.externalLinks.items[3].url} target="_blank">
+                <BsWikipedia className="w-8 h-8 cursor-pointer" />
+              </Link>
+            </div>
+          )}
         </div>
         {!artist && (
           <p className="text-base text-gray-400 mt-2">{song?.album?.artists[0].name}</p>

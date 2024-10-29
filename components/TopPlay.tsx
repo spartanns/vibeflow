@@ -64,7 +64,7 @@ const TopPlay = () => {
     <section ref={divRef} className="xl:ml-0 xl:mb-0 mb-6 flex-1 xl:max-w-[500px] max-w-full flex flex-col mt-4">
       <div className="w-full flex flex-col">
         <div className="flex flex-row justify-between items-center">
-          <h2 className="text-white font-bold text-2xl">Top Charts</h2>
+          <h2 className="text-white font-bold text-2xl ml-4">Top Charts</h2>
           <Link href="/top-charts">
             <p className="text-gray-300 text-base cursor-pointer">See More</p>
           </Link>
