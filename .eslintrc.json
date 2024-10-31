@@ -9,6 +9,9 @@
     ],
     "@typescript-eslint/ban-ts-ignore": [
       "off"
+    ],
+    "react/no-unknown-property": [
+      "off"
     ]
   }
 }

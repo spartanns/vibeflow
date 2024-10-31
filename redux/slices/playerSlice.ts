@@ -21,8 +21,6 @@ const playerSlice = createSlice({
 
       state.currentIndex = action.payload.i;
       state.isActive = true;
-
-      console.log(state.activeSong);
     },
 
     nextSong: (state, action) => {
