@@ -1,6 +1,5 @@
 "use client";
 
-import Searchbar from "@/components/Searchbar";
 import SongCard from "@/components/SongCard";
 import { tracks } from "@/constants/discover";
 import { fetchSongs } from "@/redux/slices/songsSlice";
