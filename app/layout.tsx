@@ -1,9 +1,6 @@
-"use client";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import { Provider } from "react-redux";
-import { store } from "@/redux/store";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -16,12 +13,10 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
-/*
 export const metadata: Metadata = {
   title: "Vibeflow",
   description: "Streaming music player that finds free music for you",
 };
-*/
 
 export default function RootLayout({
   children,
@@ -33,9 +28,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Provider store={store}>
-          {children}
-        </Provider>
+        {children}
       </body>
     </html>
   );

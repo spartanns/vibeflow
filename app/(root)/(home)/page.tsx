@@ -19,7 +19,6 @@ const Home: React.FC = () => {
 
   return (
     <section className="flex flex-col">
-      <Searchbar />
       <article className="w-full flex justify-between items-center flex-col mt-4 mb-10">
         <h2 className="w-full font-bold text-3xl text-white text-left">Discover</h2>
 

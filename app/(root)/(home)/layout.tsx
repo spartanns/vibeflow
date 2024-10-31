@@ -1,5 +1,6 @@
 "use client";
 import MusicPlayer from "@/components/MusicPlayer";
+import Searchbar from "@/components/Searchbar";
 import Sidebar from "@/components/Sidebar";
 import TopPlay from "@/components/TopPlay";
 import { store } from "@/redux/store";
@@ -14,7 +15,9 @@ const HomeLayout = ({ children }: { children: ReactNode }) => {
       <section className="relative flex">
         <Sidebar />
         <article className="flex flex-col flex-1 bg-gradient-to-br from-black to-[#082F49]">
-          <div className="px-6 h-screen overflow-y-scroll hide-scrollbar flex xl:flex-row flex-col-reverse">
+
+          <Searchbar />
+          <div className="px-6 h-[calc(100vh-72px)] overflow-y-scroll hide-scrollbar flex xl:flex-row flex-col-reverse">
             <div className="flex-1 h-fit pb-40">
               {children}
             </div>

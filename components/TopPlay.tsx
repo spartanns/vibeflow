@@ -12,10 +12,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { playPause, setActiveSong } from "@/redux/slices/playerSlice";
 
 const TopChartCard = ({ song, activeSong, isPlaying, handlePauseClick, handlePlayClick, i }) => {
-  //const track = useSelector((state) => state.song)
 
   return (
-    <section className="w-full flex flex-row items-center hover:bg-[#4C426E] py-2 p-4 rounded-lg cursor-pointer mb-2">
+    <section className="w-full flex flex-row items-center hover:bg-white/5 py-2 p-4 rounded-lg cursor-pointer mb-2">
       <h3 className="font-bold text-base text-white mr-3">{i + 1}.</h3>
       <div className="flex flex-row flex-1 justify-between items-center">
         <img className="w-20 h-20 rounded-lg" src={song.album.images[0].url} alt={song?.album.name} />
@@ -65,7 +64,7 @@ const TopPlay = () => {
       <div className="w-full flex flex-col">
         <div className="flex flex-row justify-between items-center">
           <h2 className="text-white font-bold text-2xl ml-4">Top Charts</h2>
-          <Link href="/top-charts">
+          <Link href="#">
             <p className="text-gray-300 text-base cursor-pointer">See More</p>
           </Link>
         </div>
@@ -87,7 +86,7 @@ const TopPlay = () => {
       <div className="w-full flex flex-col mt-8">
         <div className="flex flex-row justify-between items-center">
           <h2 className="text-white font-bold text-2xl">Top Artists</h2>
-          <Link href="/top-artists">
+          <Link href="#">
             <p className="text-gray-300 text-base cursor-pointer">See More</p>
           </Link>
         </div>
