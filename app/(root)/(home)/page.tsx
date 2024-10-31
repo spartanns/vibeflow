@@ -13,7 +13,6 @@ const Home: React.FC = () => {
 
   useEffect(() => {
     dispatch(fetchSongs());
-    console.log(process.env.NEXT_PUBLIC_SPOTIFY_API_KEY);
   }, []);
 
   return (
