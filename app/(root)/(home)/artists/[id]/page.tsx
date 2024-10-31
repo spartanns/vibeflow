@@ -15,7 +15,11 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchArtist } from "@/redux/slices/artistSlice";
 
-const FeaturingCard = ({ imgUrl }) => (
+interface CardProps {
+  imgUrl: string;
+}
+
+const FeaturingCard = ({ imgUrl }: CardProps) => (
   <Card className="h-[250px] flex flex-col gap-2 justify-end rounded-lg">
     <img src={imgUrl} className="w-full h-full inset-0 object-cover rounded-lg" width="100%" height="100%" />
   </Card>
